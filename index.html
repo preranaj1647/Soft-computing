@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLNN Code Example</title>
+  <style>
+    .copy-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+  <script>
+    function copyToClipboard(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Code copied to clipboard!");
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>SLNN Code Example</h1>
+  <pre id="slnn-code">
+print("Practical 1(A) performed by Prerana Jadhav")
+x = int(input("Enter the value of x "))
+b = int(input("Enter the value for bias "))
+w = int(input("Enter the value for weight "))
+
+ynet = w * x + b
+
+print("Net Input =", ynet)
+print("Apply Activation Function over net input, Ramp Function")
+
+if ynet < 0:
+    output = 0
+elif ynet >= 0 and ynet <= 1:
+    output = ynet
+else:
+    output = 1
+
+print("output =", output)
+  </pre>
+  <button class="copy-btn" onclick="copyToClipboard('slnn-code')">Copy SLNN Code</button>
+</body>
+</html>
